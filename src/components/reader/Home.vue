@@ -12,7 +12,7 @@
           size="small"
           :icon="Plus"
           circle
-          title="导入图书"
+          title="Add To Library"
         ></el-button>
       </el-upload>
     </titlebar>
@@ -62,7 +62,7 @@
                     round
                     :icon="Download"
                     @click="download(info.url)"
-                    >下载</el-button
+                    >Download</el-button
                   >
                 </p>
                 <p>
@@ -71,25 +71,25 @@
                     round
                     :icon="Delete"
                     @click="delFile(info.id)"
-                    >删除</el-button
+                    >Delete</el-button
                   >
                 </p>
                 <el-divider />
-                <p v-if="info.title">书名: {{ info.title }}</p>
-                <p v-if="info.creator">作者: {{ info.creator }}</p>
+                <p v-if="info.title">Title: {{ info.title }}</p>
+                <p v-if="info.creator">Creator: {{ info.creator }}</p>
                 <p v-if="info.description">
-                  描述:
+                  Description:
                   <span :title="info.description">
                     {{ trunc(info.description, 30) }}</span
                   >
                 </p>
-                <p v-if="info.publisher">出版社: {{ info.publisher }}</p>
+                <p v-if="info.publisher">Publisher: {{ info.publisher }}</p>
                 <p v-if="info.date">
-                  出版日期:
+                  Pub Date:
                   {{ publishDate(info.date) || publishDate(info.publishDate) }}
                 </p>
-                <p v-if="info.language">语言: {{ info.language }}</p>
-                <p v-if="info.size">文件大小: {{ formatSize(info.size) }}</p>
+                <p v-if="info.language">Language: {{ info.language }}</p>
+                <p v-if="info.size">File Size: {{ formatSize(info.size) }}</p>
               </div>
             </el-popover>
           </el-card>

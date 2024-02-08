@@ -60,7 +60,7 @@
 //https://github.com/hepengwei/visualization-collection
 import { db } from './utils/db'
 import { Back, Grid } from '@element-plus/icons-vue'
-import { EpubView } from '@/modules/index'
+import { EpubView } from '../../modules/index'
 import titlebar from './Titlebar.vue'
 import TocMenu from './menu/TocMenu.vue'
 import BookmarkMenu from './menu/BookmarkMenu.vue'
@@ -105,7 +105,7 @@ const getRendition = (val) => {
     // info.lastCfi = location.start.cfi;
     history.value.push(location.start.cfi)
     progress.value = book.locations.percentageFromCfi(location.start.cfi)
-    // sliderValue.value = Math.floor(progress.value * 10000) / 100;
+    sliderValue.value = Math.floor(progress.value * 10000) / 100;
   })
   rendition.hooks.content.register(applyStyle)
 

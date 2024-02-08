@@ -1,19 +1,8 @@
 <template>
   <el-container direction="vertical">
     <titlebar backdrop shadow>
-      <el-upload
-        :auto-upload="false"
-        accept=".epub"
-        :on-change="selectFile"
-        :multiple="false"
-        :show-file-list="false"
-      >
-        <el-button
-          size="small"
-          :icon="Plus"
-          circle
-          title="导入图书"
-        ></el-button>
+      <el-upload :auto-upload="false" accept=".epub" :on-change="selectFile" :multiple="false" :show-file-list="false">
+        <el-button size="small" :icon="Plus" circle title="Add To Library"></el-button>
       </el-upload>
     </titlebar>
     <!-- 书籍列表 -->
@@ -21,19 +10,8 @@
       <div class="grid" ref="grid">
         <div v-for="(info, index) in bookList" :key="index">
           <!-- 主体 -->
-          <el-card
-            @click="readerBook(info)"
-            ref="card"
-            shadow="hover"
-            class="box-card"
-            :body-style="{ padding: '0px' }"
-          >
-            <el-image
-              :lazy="true"
-              :src="'data:image/png;base64,' + info.coverBase64"
-              fit="fill"
-              class="el-image"
-            >
+          <el-card @click="readerBook(info)" ref="card" shadow="hover" class="box-card" :body-style="{ padding: '0px' }">
+            <el-image :lazy="true" :src="'data:image/png;base64,' + info.coverBase64" fit="fill" class="el-image">
               <template #error>
                 <div class="image-slot">
                   <el-icon><icon-picture /></el-icon>
@@ -43,53 +21,37 @@
             <!-- 提示 -->
             <el-popover trigger="hover" placement="right">
               <template #reference>
-                <div
-                  class="title"
-                  :style="{
-                    background: info.bgColorFromCover
-                      ? info.bgColorFromCover
-                      : '#6d6d6d',
-                  }"
-                >
+                <div class="title" :style="{
+                  background: info.bgColorFromCover
+                    ? info.bgColorFromCover
+                    : '#6d6d6d',
+                }">
                   {{ trunc(info.title, 12) }}
                 </div>
               </template>
               <!-- 书籍信息 -->
               <div>
                 <p>
-                  <el-button
-                    type="primary"
-                    round
-                    :icon="Download"
-                    @click="download(info.url)"
-                    >下载</el-button
-                  >
+                  <el-button type="primary" round :icon="Download" @click="download(info.url)">Download</el-button>
                 </p>
                 <p>
-                  <el-button
-                    type="primary"
-                    round
-                    :icon="Delete"
-                    @click="delFile(info.id)"
-                    >删除</el-button
-                  >
+                  <el-button type="primary" round :icon="Delete" @click="delFile(info.id)">Delete</el-button>
                 </p>
                 <el-divider />
-                <p v-if="info.title">书名: {{ info.title }}</p>
-                <p v-if="info.creator">作者: {{ info.creator }}</p>
+                <p v-if="info.title">Title: {{ info.title }}</p>
+                <p v-if="info.creator">Creator: {{ info.creator }}</p>
                 <p v-if="info.description">
-                  描述:
+                  Description:
                   <span :title="info.description">
-                    {{ trunc(info.description, 30) }}</span
-                  >
+                    {{ trunc(info.description, 30) }}</span>
                 </p>
-                <p v-if="info.publisher">出版社: {{ info.publisher }}</p>
+                <p v-if="info.publisher">Publisher: {{ info.publisher }}</p>
                 <p v-if="info.date">
-                  出版日期:
+                  Pub Date:
                   {{ publishDate(info.date) || publishDate(info.publishDate) }}
                 </p>
-                <p v-if="info.language">语言: {{ info.language }}</p>
-                <p v-if="info.size">文件大小: {{ formatSize(info.size) }}</p>
+                <p v-if="info.language">Language: {{ info.language }}</p>
+                <p v-if="info.size">File Size: {{ formatSize(info.size) }}</p>
               </div>
             </el-popover>
           </el-card>
@@ -114,7 +76,7 @@ import { useReaderStore } from './utils/stores'
 import { ref, reactive, toRefs, onMounted, onBeforeUnmount } from 'vue'
 
 const reader = useReaderStore()
-
+console.log('Imported Books: ', reader.bookList.length)
 const bookList = reader.bookList.sort((a, b) => {
   if (a.lastOpen && b.lastOpen) {
     return b.lastOpen - a.lastOpen
@@ -122,7 +84,7 @@ const bookList = reader.bookList.sort((a, b) => {
     return 1
   }
 })
-console.log(bookList)
+console.log('Books: ', bookList)
 
 const { saveAs } = fileSaver
 const grid = ref(null)
@@ -276,15 +238,15 @@ const selectFile = async (item) => {
   // }
   // reader.readAsArrayBuffer(raw)
   //不存储
-  const reader = new FileReader()
-  reader.onerror = (error) => {
+  const freader = new FileReader()
+  freader.onerror = (error) => {
     console.log(error)
   }
-  reader.onloadend = (e) => {
-    console.log(reader)
-    emit('update:currentBook', reader.result)
+  freader.onloadend = (e) => {
+    console.log(freader)
+    emit('update:currentBook', freader.result)
   }
-  reader.readAsArrayBuffer(raw)
+  freader.readAsArrayBuffer(raw)
 }
 const saveFile = async (file) => {
   //保存文件
@@ -302,6 +264,7 @@ const delFile = (id) => {
 }
 
 .main {
+
   /* margin-top: 40px; */
   .grid {
     margin: 40px;

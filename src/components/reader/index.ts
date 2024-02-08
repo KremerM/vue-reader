@@ -1,0 +1,1 @@
+export {default as VueReader } from './Start.vue'

@@ -6,7 +6,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     name: 'reader',
     path: '/reader',
-    component: () => import('comps/reader/index.vue'),
+    component: () => import('comps/reader/Start.vue'),
   },
   { name: 'test', path: '/test', component: () => import('comps/Test.vue') },
   { name: 'demo', path: '/demo', component: () => import('comps/Demo.vue') },

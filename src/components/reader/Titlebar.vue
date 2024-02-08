@@ -6,14 +6,12 @@
     <span id="center" :title="props.title">{{ trunc(props.title, 15) }}</span>
 
     <span id="right">
-      <el-button size="small" :icon="Minus" circle @click="minimizeWindow" />
       <el-button
         size="small"
         :icon="FullScreen"
         circle
         @click="maximizeWindow"
       />
-      <el-button size="small" :icon="Close" circle @click="closeWindow" />
     </span>
   </el-header>
 </template>
@@ -29,41 +27,40 @@ const props = defineProps({
     type: Boolean,
   },
   title: {
-    default: 'vue-reader',
+    default: 'Reader',
     type: String,
   },
 })
+
+let fullScreen = false;
 
 const trunc = (str, n) => {
   return str.length > n ? `${str.substr(0, n - 3)}...` : str
 }
 
-const closeWindow = () => {
-  // router.go('/vue-reader')
-}
-const minimizeWindow = () => {
-  if (document.exitFullscreen) {
-    document.exitFullscreen()
-  } else if (document.mozCancelFullScreen) {
-    document.mozCancelFullScreen()
-  } else if (document.webkitCancelFullScreen) {
-    document.webkitCancelFullScreen()
-  } else if (document.msExitFullscreen) {
-    document.msExitFullscreen()
-  }
-  if (typeof cfs != 'undefined' && cfs) {
-    cfs.call(el)
-  }
-}
 const maximizeWindow = () => {
-  const el = document.documentElement
-  const rfs =
-    el.requestFullScreen ||
-    el.webkitRequestFullScreen ||
-    el.mozRequestFullScreen ||
-    el.msRequestFullscreen
-  if (typeof rfs != 'undefined' && rfs) {
-    rfs.call(el)
+  if (fullScreen){
+    if (document.exitFullscreen) {
+      document.exitFullscreen()
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen()
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen()
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen()
+    }
+    fullScreen = false;
+  }else{
+    const el = document.documentElement
+    const rfs =
+      el.requestFullScreen ||
+      el.webkitRequestFullScreen ||
+      el.mozRequestFullScreen ||
+      el.msRequestFullscreen
+    if (typeof rfs != 'undefined' && rfs) {
+      rfs.call(el)
+    }
+    fullScreen = true;
   }
 }
 </script>

@@ -2,7 +2,9 @@
   "name": "vue-reader-plugin",
   "version": "1.2.10",
   "type": "module",
-  "main": "dist/vue-reader-plugin.es.js",
+  "main": "dist/vue-reader-plugin.umd.js",
+  "module": "dist/vue-reader-plugin.es.js",
+  "unpkg": "dist/vue-reader-plugin.umd.js",
   "files": [
     "dist"
   ],

@@ -34186,7 +34186,7 @@ const CL = {
       l.on("rendered", (de, ue) => {
         tL(ue.document, l, H);
       }), l.on("relocated", (de) => {
-        S.value.push(de.start.cfi), p.value = Y.locations.percentageFromCfi(de.start.cfi);
+        S.value.push(de.start.cfi), p.value = Y.locations.percentageFromCfi(de.start.cfi), b.value = Math.floor(p.value * 1e4) / 100;
       }), l.hooks.content.register(Z), Y.ready.then(() => {
         const de = Y.package.metadata;
         return console.log(Y.package.metadata), o.value = de.title, Y.locations.generate();
@@ -34379,7 +34379,7 @@ const CL = {
       });
     };
   }
-}, TL = /* @__PURE__ */ is(CL, [["__scopeId", "data-v-7f529ef9"]]);
+}, TL = /* @__PURE__ */ is(CL, [["__scopeId", "data-v-dc866de6"]]);
 const OL = {
   name: "ReaderStart"
 }, IL = /* @__PURE__ */ Object.assign(OL, {

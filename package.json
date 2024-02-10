@@ -2,9 +2,8 @@
   "name": "vue-reader-plugin",
   "version": "1.2.10",
   "type": "module",
-  "main": "dist/vue-reader-plugin.umd.js",
+  "main": "dist/vue-reader-plugin.es.js",
   "module": "dist/vue-reader-plugin.es.js",
-  "unpkg": "dist/vue-reader-plugin.umd.js",
   "files": [
     "dist"
   ],
@@ -44,6 +43,7 @@
   ],
   "dependencies": {
     "epubjs": "^0.3.93",
+    "pinia": "2.0.23",
     "save": "^2.9.0",
     "vue-demi": "latest"
   },
@@ -87,14 +87,14 @@
     "vite-tsconfig-paths": "^4.0.7",
     "vitepress": "1.0.0-alpha.30",
     "vitepress-theme-demoblock": "^2.0.2",
-    "vue": "3.2.44",
+    "vue": "^3.4.14",
     "vue-reader": "^1.2.10",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue2": "npm:vue@2"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-rc.1",
-    "vue": "^2.0.0 || >=3.0.0",
-    "pinia": "2.0.23"
+    "vue": "^2.0.0 || >=3.0.0"
   },
   "peerDependenciesMeta": {
     "@vue/composition-api": {

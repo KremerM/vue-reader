@@ -7,6 +7,7 @@ export default {
     const pinia = createPinia();
     app.use(pinia);
     app.component('ReaderStart', ReaderStart);
-  },
-  readerStore: useReaderStore
+  }
 };
+
+export { useReaderStore };

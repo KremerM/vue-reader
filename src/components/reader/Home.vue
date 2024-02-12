@@ -220,6 +220,9 @@ const download = (url) => {
 const emit = defineEmits(['update:currentBook'])
 //reader
 const readerBook = (info) => {
+  console.log("Reader book url type: ", typeof info.url)
+  console.log("Reader book byte length: ", info.url.byteLength)
+  console.log("Reader book url: ", info.url)
   emit('update:currentBook', info)
 }
 //导入

@@ -83,13 +83,22 @@ const props = defineProps({
 const isReady = ref(false)
 const currentBook = ref({})
 const title = ref('')
-const url = computed(() => {
+const url = computed(async () => {
+  
+  const response = await $fetch('/api/books/getBookFile', {
+      method: 'GET',
+      responseType: 'arrayBuffer',
+      params: { filePath: `${props.bookInfo.url}` }
+    });
+  return response
+  /*
   if (!props.bookInfo.url) {
     // const info = await db.books.get(props.bookInfo);
     return props.bookInfo
   } else {
     return `${import.meta.env.BASE_URL}books/${props.bookInfo.url}`
   }
+  */
 })
 let rendition = null,
   flattenedToc = null

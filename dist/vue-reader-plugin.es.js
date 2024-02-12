@@ -14155,7 +14155,7 @@ function J4({ el$: t }, e) {
     (a = r.value[0]) == null || a.setAttribute("tabindex", "0");
   };
 }
-const eL = be({
+const e8 = be({
   name: "ElTree",
   components: { ElTreeNode: Q4 },
   props: {
@@ -14376,7 +14376,7 @@ const eL = be({
     };
   }
 });
-function tL(t, e, n, r, i, s) {
+function t8(t, e, n, r, i, s) {
   const o = Dt("el-tree-node");
   return V(), se("div", {
     ref: "el$",
@@ -14420,21 +14420,21 @@ function tL(t, e, n, r, i, s) {
     ])
   ], 2);
 }
-var Wa = /* @__PURE__ */ qe(eL, [["render", tL], ["__file", "/home/runner/work/element-plus/element-plus/packages/components/tree/src/tree.vue"]]);
+var Wa = /* @__PURE__ */ qe(e8, [["render", t8], ["__file", "/home/runner/work/element-plus/element-plus/packages/components/tree/src/tree.vue"]]);
 Wa.install = (t) => {
   t.component(Wa.name, Wa);
 };
-const nL = Wa, rL = nL, Ug = Symbol("uploadContextKey"), iL = "ElUpload";
-class sL extends Error {
+const n8 = Wa, r8 = n8, Ug = Symbol("uploadContextKey"), i8 = "ElUpload";
+class s8 extends Error {
   constructor(e, n, r, i) {
     super(e), this.name = "UploadAjaxError", this.status = n, this.method = r, this.url = i;
   }
 }
 function fp(t, e, n) {
   let r;
-  return n.response ? r = `${n.response.error || n.response}` : n.responseText ? r = `${n.responseText}` : r = `fail to ${e.method} ${t} ${n.status}`, new sL(r, n.status, e.method, t);
+  return n.response ? r = `${n.response.error || n.response}` : n.responseText ? r = `${n.responseText}` : r = `fail to ${e.method} ${t} ${n.status}`, new s8(r, n.status, e.method, t);
 }
-function oL(t) {
+function o8(t) {
   const e = t.responseText || t.response;
   if (!e)
     return e;
@@ -14444,8 +14444,8 @@ function oL(t) {
     return e;
   }
 }
-const aL = (t) => {
-  typeof XMLHttpRequest > "u" && Gi(iL, "XMLHttpRequest is undefined");
+const a8 = (t) => {
+  typeof XMLHttpRequest > "u" && Gi(i8, "XMLHttpRequest is undefined");
   const e = new XMLHttpRequest(), n = t.action;
   e.upload && e.upload.addEventListener("progress", (s) => {
     const o = s;
@@ -14460,7 +14460,7 @@ const aL = (t) => {
   }), e.addEventListener("load", () => {
     if (e.status < 200 || e.status >= 300)
       return t.onError(fp(n, t, e));
-    t.onSuccess(oL(e));
+    t.onSuccess(o8(e));
   }), e.open(t.method, n, !0), t.withCredentials && "withCredentials" in e && (e.withCredentials = !0);
   const i = t.headers || {};
   if (i instanceof Headers)
@@ -14470,8 +14470,8 @@ const aL = (t) => {
       er(o) || e.setRequestHeader(s, String(o));
   return e.send(r), e;
 }, Vg = ["text", "picture", "picture-card"];
-let lL = 1;
-const Ec = () => Date.now() + lL++, Wg = ut({
+let l8 = 1;
+const Ec = () => Date.now() + l8++, Wg = ut({
   action: {
     type: String,
     default: "#"
@@ -14523,11 +14523,11 @@ const Ec = () => Date.now() + lL++, Wg = ut({
   },
   httpRequest: {
     type: Pe(Function),
-    default: aL
+    default: a8
   },
   disabled: Boolean,
   limit: Number
-}), uL = ut({
+}), u8 = ut({
   ...Wg,
   beforeUpload: {
     type: Pe(Function),
@@ -14564,7 +14564,7 @@ const Ec = () => Date.now() + lL++, Wg = ut({
     type: Pe(Function),
     default: en
   }
-}), cL = ut({
+}), c8 = ut({
   files: {
     type: Pe(Array),
     default: () => Ts([])
@@ -14582,14 +14582,14 @@ const Ec = () => Date.now() + lL++, Wg = ut({
     values: Vg,
     default: "text"
   }
-}), dL = {
+}), d8 = {
   remove: (t) => !!t
-}, fL = ["onKeydown"], hL = ["src"], pL = ["onClick"], vL = ["title"], mL = ["onClick"], gL = ["onClick"], yL = be({
+}, f8 = ["onKeydown"], h8 = ["src"], p8 = ["onClick"], v8 = ["title"], m8 = ["onClick"], g8 = ["onClick"], y8 = be({
   name: "ElUploadList"
-}), bL = /* @__PURE__ */ be({
-  ...yL,
-  props: cL,
-  emits: dL,
+}), b8 = /* @__PURE__ */ be({
+  ...y8,
+  props: c8,
+  emits: d8,
   setup(t, { emit: e }) {
     const n = t, { t: r } = or(), i = Fe("upload"), s = Fe("icon"), o = Fe("list"), a = Pr(), l = K(!1), u = F(() => [
       i.b("list"),
@@ -14623,7 +14623,7 @@ const Ec = () => Date.now() + lL++, Wg = ut({
               class: ee(x(i).be("list", "item-thumbnail")),
               src: v.url,
               alt: ""
-            }, null, 10, hL)) : ye("v-if", !0),
+            }, null, 10, h8)) : ye("v-if", !0),
             v.status === "uploading" || d.listType !== "picture-card" ? (V(), se("div", {
               key: 1,
               class: ee(x(i).be("list", "item-info"))
@@ -14643,8 +14643,8 @@ const Ec = () => Date.now() + lL++, Wg = ut({
                 ae("span", {
                   class: ee(x(i).be("list", "item-file-name")),
                   title: v.name
-                }, st(v.name), 11, vL)
-              ], 10, pL),
+                }, st(v.name), 11, v8)
+              ], 10, p8),
               v.status === "uploading" ? (V(), Ce(x(Og), {
                 key: 0,
                 type: d.listType === "picture-card" ? "circle" : "line",
@@ -14707,7 +14707,7 @@ const Ec = () => Date.now() + lL++, Wg = ut({
                   ]),
                   _: 1
                 }, 8, ["class"])
-              ], 10, mL),
+              ], 10, m8),
               x(a) ? ye("v-if", !0) : (V(), se("span", {
                 key: 0,
                 class: ee(x(i).be("list", "item-delete")),
@@ -14721,30 +14721,30 @@ const Ec = () => Date.now() + lL++, Wg = ut({
                   ]),
                   _: 1
                 }, 8, ["class"])
-              ], 10, gL))
+              ], 10, g8))
             ], 2)) : ye("v-if", !0)
           ])
-        ], 42, fL))), 128)),
+        ], 42, f8))), 128)),
         De(d.$slots, "append")
       ]),
       _: 3
     }, 8, ["class", "name"]));
   }
 });
-var hp = /* @__PURE__ */ qe(bL, [["__file", "/home/runner/work/element-plus/element-plus/packages/components/upload/src/upload-list.vue"]]);
-const wL = ut({
+var hp = /* @__PURE__ */ qe(b8, [["__file", "/home/runner/work/element-plus/element-plus/packages/components/upload/src/upload-list.vue"]]);
+const w8 = ut({
   disabled: {
     type: Boolean,
     default: !1
   }
-}), _L = {
+}), _8 = {
   file: (t) => Nr(t)
-}, EL = ["onDrop", "onDragover"], Hg = "ElUploadDrag", SL = be({
+}, E8 = ["onDrop", "onDragover"], Hg = "ElUploadDrag", S8 = be({
   name: Hg
-}), xL = /* @__PURE__ */ be({
-  ...SL,
-  props: wL,
-  emits: _L,
+}), x8 = /* @__PURE__ */ be({
+  ...S8,
+  props: w8,
+  emits: _8,
   setup(t, { emit: e }) {
     const n = tt(Ug);
     n || Gi(Hg, "usage: <el-upload><el-upload-dragger /></el-upload>");
@@ -14772,11 +14772,11 @@ const wL = ut({
       onDragleave: u[0] || (u[0] = ft((c) => i.value = !1, ["prevent"]))
     }, [
       De(l.$slots, "default")
-    ], 42, EL));
+    ], 42, E8));
   }
 });
-var CL = /* @__PURE__ */ qe(xL, [["__file", "/home/runner/work/element-plus/element-plus/packages/components/upload/src/upload-dragger.vue"]]);
-const kL = ut({
+var C8 = /* @__PURE__ */ qe(x8, [["__file", "/home/runner/work/element-plus/element-plus/packages/components/upload/src/upload-dragger.vue"]]);
+const k8 = ut({
   ...Wg,
   beforeUpload: {
     type: Pe(Function),
@@ -14806,12 +14806,12 @@ const kL = ut({
     type: Pe(Function),
     default: en
   }
-}), TL = ["onKeydown"], OL = ["name", "multiple", "accept"], NL = be({
+}), T8 = ["onKeydown"], O8 = ["name", "multiple", "accept"], N8 = be({
   name: "ElUploadContent",
   inheritAttrs: !1
-}), AL = /* @__PURE__ */ be({
-  ...NL,
-  props: kL,
+}), A8 = /* @__PURE__ */ be({
+  ...N8,
+  props: k8,
   setup(t, { expose: e }) {
     const n = t, r = Fe("upload"), i = Pr(), s = Mn({}), o = Mn(), a = (b) => {
       if (b.length === 0)
@@ -14905,7 +14905,7 @@ const kL = ut({
       onClick: h,
       onKeydown: vn(ft(v, ["self"]), ["enter", "space"])
     }, [
-      b.drag ? (V(), Ce(CL, {
+      b.drag ? (V(), Ce(C8, {
         key: 0,
         disabled: x(i),
         onFile: a
@@ -14926,15 +14926,15 @@ const kL = ut({
         onChange: d,
         onClick: p[0] || (p[0] = ft(() => {
         }, ["stop"]))
-      }, null, 42, OL)
-    ], 42, TL));
+      }, null, 42, O8)
+    ], 42, T8));
   }
 });
-var pp = /* @__PURE__ */ qe(AL, [["__file", "/home/runner/work/element-plus/element-plus/packages/components/upload/src/upload-content.vue"]]);
+var pp = /* @__PURE__ */ qe(A8, [["__file", "/home/runner/work/element-plus/element-plus/packages/components/upload/src/upload-content.vue"]]);
 const vp = "ElUpload", mp = (t) => {
   var e;
   (e = t.url) != null && e.startsWith("blob:") && URL.revokeObjectURL(t.url);
-}, IL = (t, e) => {
+}, I8 = (t, e) => {
   const n = _b(t, "fileList", void 0, { passive: !0 }), r = (h) => n.value.find((v) => v.uid === h.uid);
   function i(h) {
     var v;
@@ -15011,11 +15011,11 @@ const vp = "ElUpload", mp = (t) => {
     submit: d,
     revokeFileObjectURL: mp
   };
-}, RL = be({
+}, R8 = be({
   name: "ElUpload"
-}), LL = /* @__PURE__ */ be({
-  ...RL,
-  props: uL,
+}), L8 = /* @__PURE__ */ be({
+  ...R8,
+  props: u8,
   setup(t, { expose: e }) {
     const n = t, r = Pr(), i = Mn(), {
       abort: s,
@@ -15028,7 +15028,7 @@ const vp = "ElUpload", mp = (t) => {
       handleSuccess: h,
       handleProgress: v,
       revokeFileObjectURL: y
-    } = IL(n, i), b = F(() => n.listType === "picture-card"), p = F(() => ({
+    } = I8(n, i), b = F(() => n.listType === "picture-card"), p = F(() => ({
       ...n,
       fileList: l.value,
       onStart: u,
@@ -15108,9 +15108,9 @@ const vp = "ElUpload", mp = (t) => {
     ]));
   }
 });
-var PL = /* @__PURE__ */ qe(LL, [["__file", "/home/runner/work/element-plus/element-plus/packages/components/upload/src/upload.vue"]]);
-const $L = nn(PL);
-function DL(t) {
+var P8 = /* @__PURE__ */ qe(L8, [["__file", "/home/runner/work/element-plus/element-plus/packages/components/upload/src/upload.vue"]]);
+const $8 = nn(P8);
+function D8(t) {
   let e;
   const n = K(!1), r = Pn({
     ...t,
@@ -15201,23 +15201,23 @@ function DL(t) {
   };
 }
 let Sa;
-const BL = function(t = {}) {
+const B8 = function(t = {}) {
   if (!Et)
     return;
-  const e = ML(t);
+  const e = M8(t);
   if (e.fullscreen && Sa)
     return Sa;
-  const n = DL({
+  const n = D8({
     ...e,
     closed: () => {
       var i;
       (i = e.closed) == null || i.call(e), e.fullscreen && (Sa = void 0);
     }
   });
-  zL(e, e.parent, n), gp(e, e.parent, n), e.parent.vLoadingAddClassList = () => gp(e, e.parent, n);
+  z8(e, e.parent, n), gp(e, e.parent, n), e.parent.vLoadingAddClassList = () => gp(e, e.parent, n);
   let r = e.parent.getAttribute("loading-number");
   return r ? r = `${Number.parseInt(r) + 1}` : r = "1", e.parent.setAttribute("loading-number", r), e.parent.appendChild(n.$el), rt(() => n.visible.value = e.visible), e.fullscreen && (Sa = n), n;
-}, ML = (t) => {
+}, M8 = (t) => {
   var e, n, r, i;
   let s;
   return qt(t.target) ? s = (e = document.querySelector(t.target)) != null ? e : document.body : s = t.target || document.body, {
@@ -15233,7 +15233,7 @@ const BL = function(t = {}) {
     visible: (i = t.visible) != null ? i : !0,
     target: s
   };
-}, zL = async (t, e, n) => {
+}, z8 = async (t, e, n) => {
   const { nextZIndex: r } = n.vm.zIndex || n.vm._.exposed.zIndex, i = {};
   if (t.fullscreen)
     n.originalPosition.value = fs(document.body, "position"), n.originalOverflow.value = fs(document.body, "overflow"), i.zIndex = r();
@@ -15271,18 +15271,18 @@ const BL = function(t = {}) {
   };
   t[Sc] = {
     options: d,
-    instance: BL(d)
+    instance: B8(d)
   };
-}, FL = (t, e) => {
+}, F8 = (t, e) => {
   for (const n of Object.keys(e))
     on(e[n]) && (e[n].value = t[n]);
-}, jL = {
+}, j8 = {
   mounted(t, e) {
     e.value && yp(t, e);
   },
   updated(t, e) {
     const n = t[Sc];
-    e.oldValue !== e.value && (e.value && !e.oldValue ? yp(t, e) : e.value && e.oldValue ? wn(e.value) && FL(e.value, n.options) : n == null || n.instance.close());
+    e.oldValue !== e.value && (e.value && !e.oldValue ? yp(t, e) : e.value && e.oldValue ? wn(e.value) && F8(e.value, n.options) : n == null || n.instance.close());
   },
   unmounted(t) {
     var e;
@@ -15294,7 +15294,7 @@ const Zi = (t, e) => {
   for (const [r, i] of e)
     n[r] = i;
   return n;
-}, UL = { id: "left" }, VL = ["title"], WL = { id: "right" }, HL = {
+}, U8 = { id: "left" }, V8 = ["title"], W8 = { id: "right" }, H8 = {
   __name: "Titlebar",
   props: {
     backdrop: {
@@ -15324,14 +15324,14 @@ const Zi = (t, e) => {
         class: ee({ backdrop: e.backdrop })
       }, {
         default: de(() => [
-          ae("span", UL, [
+          ae("span", U8, [
             De(s.$slots, "default", {}, void 0, !0)
           ]),
           ae("span", {
             id: "center",
             title: e.title
-          }, st(r(e.title, 15)), 9, VL),
-          ae("span", WL, [
+          }, st(r(e.title, 15)), 9, V8),
+          ae("span", W8, [
             ve(a, {
               size: "small",
               icon: x(lm),
@@ -15344,8 +15344,8 @@ const Zi = (t, e) => {
       }, 8, ["class"]);
     };
   }
-}, Kg = /* @__PURE__ */ Zi(HL, [["__scopeId", "data-v-ea5e85e1"]]);
-var xc = {}, KL = {
+}, Kg = /* @__PURE__ */ Zi(H8, [["__scopeId", "data-v-ea5e85e1"]]);
+var xc = {}, K8 = {
   get exports() {
     return xc;
   },
@@ -15423,17 +15423,17 @@ var xc = {}, KL = {
     });
     o.saveAs = l.saveAs = l, t.exports = l;
   });
-})(KL);
-const qL = xc, Ut = typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : typeof window < "u" ? window : global, an = Object.keys, On = Array.isArray;
+})(K8);
+const q8 = xc, Ut = typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : typeof window < "u" ? window : global, an = Object.keys, On = Array.isArray;
 function Ln(t, e) {
   return typeof e != "object" || an(e).forEach(function(n) {
     t[n] = e[n];
   }), t;
 }
 typeof Promise > "u" || Ut.Promise || (Ut.Promise = Promise);
-const Io = Object.getPrototypeOf, GL = {}.hasOwnProperty;
+const Io = Object.getPrototypeOf, G8 = {}.hasOwnProperty;
 function Xn(t, e) {
-  return GL.call(t, e);
+  return G8.call(t, e);
 }
 function Ps(t, e) {
   typeof e == "function" && (e = e(Io(t))), (typeof Reflect > "u" ? an : Reflect.ownKeys)(e).forEach((n) => {
@@ -15449,14 +15449,14 @@ function _s(t) {
     return t.prototype = Object.create(e.prototype), qr(t.prototype, "constructor", t), { extend: Ps.bind(null, t.prototype) };
   } };
 }
-const YL = Object.getOwnPropertyDescriptor;
+const Y8 = Object.getOwnPropertyDescriptor;
 function ef(t, e) {
   let n;
-  return YL(t, e) || (n = Io(t)) && ef(n, e);
+  return Y8(t, e) || (n = Io(t)) && ef(n, e);
 }
-const XL = [].slice;
+const X8 = [].slice;
 function fl(t, e, n) {
-  return XL.call(t, e, n);
+  return X8.call(t, e, n);
 }
 function Gg(t, e) {
   return e(t);
@@ -15518,11 +15518,11 @@ function Zg(t) {
     Xn(t, n) && (e[n] = t[n]);
   return e;
 }
-const ZL = [].concat;
+const Z8 = [].concat;
 function Qg(t) {
-  return ZL.apply([], t);
+  return Z8.apply([], t);
 }
-const Jg = "Boolean,String,Date,RegExp,Blob,File,FileList,FileSystemFileHandle,ArrayBuffer,DataView,Uint8ClampedArray,ImageBitmap,ImageData,Map,Set,CryptoKey".split(",").concat(Qg([8, 16, 32, 64].map((t) => ["Int", "Uint", "Float"].map((e) => e + t + "Array")))).filter((t) => Ut[t]), QL = Jg.map((t) => Ut[t]);
+const Jg = "Boolean,String,Date,RegExp,Blob,File,FileList,FileSystemFileHandle,ArrayBuffer,DataView,Uint8ClampedArray,ImageBitmap,ImageData,Map,Set,CryptoKey".split(",").concat(Qg([8, 16, 32, 64].map((t) => ["Int", "Uint", "Float"].map((e) => e + t + "Array")))).filter((t) => Ut[t]), Q8 = Jg.map((t) => Ut[t]);
 Xg(Jg, (t) => [t, !0]);
 let fi = null;
 function na(t) {
@@ -15540,7 +15540,7 @@ function Cc(t) {
     e = [], fi && fi.set(t, e);
     for (var n = 0, r = t.length; n < r; ++n)
       e.push(Cc(t[n]));
-  } else if (QL.indexOf(t.constructor) >= 0)
+  } else if (Q8.indexOf(t.constructor) >= 0)
     e = t;
   else {
     const s = Io(t);
@@ -15549,11 +15549,11 @@ function Cc(t) {
   }
   return e;
 }
-const { toString: JL } = {};
+const { toString: J8 } = {};
 function kc(t) {
-  return JL.call(t).slice(8, -1);
+  return J8.call(t).slice(8, -1);
 }
-const Tc = typeof Symbol < "u" ? Symbol.iterator : "@@iterator", e8 = typeof Tc == "symbol" ? function(t) {
+const Tc = typeof Symbol < "u" ? Symbol.iterator : "@@iterator", eL = typeof Tc == "symbol" ? function(t) {
   var e;
   return t != null && (e = t[Tc]) && e.apply(t);
 } : function() {
@@ -15566,7 +15566,7 @@ function Wr(t) {
       return t.slice();
     if (this === ps && typeof t == "string")
       return [t];
-    if (i = e8(t)) {
+    if (i = eL(t)) {
       for (n = []; !(r = i.next()).done; )
         n.push(r.value);
       return n;
@@ -15590,9 +15590,9 @@ function e0(t, e) {
   Dr = t, t0 = e;
 }
 var t0 = () => !0;
-const t8 = !new Error("").stack;
+const tL = !new Error("").stack;
 function Qi() {
-  if (t8)
+  if (tL)
     try {
       throw Qi.arguments, new Error();
     } catch (t) {
@@ -15607,7 +15607,7 @@ function Oc(t, e) {
 `).slice(e).filter(t0).map((r) => `
 ` + r).join("")) : "";
 }
-var n0 = ["Unknown", "Constraint", "Data", "TransactionInactive", "ReadOnly", "Version", "NotFound", "InvalidState", "InvalidAccess", "Abort", "Timeout", "QuotaExceeded", "Syntax", "DataClone"], nf = ["Modify", "Bulk", "OpenFailed", "VersionChange", "Schema", "Upgrade", "InvalidTable", "MissingAPI", "NoSuchDatabase", "InvalidArgument", "SubTransaction", "Unsupported", "Internal", "DatabaseClosed", "PrematureCommit", "ForeignAwait"].concat(n0), n8 = { VersionChanged: "Database version changed by other database connection", DatabaseClosed: "Database has been closed", Abort: "Transaction aborted", TransactionInactive: "Transaction has already completed or failed", MissingAPI: "IndexedDB API missing. Please visit https://tinyurl.com/y2uuvskb" };
+var n0 = ["Unknown", "Constraint", "Data", "TransactionInactive", "ReadOnly", "Version", "NotFound", "InvalidState", "InvalidAccess", "Abort", "Timeout", "QuotaExceeded", "Syntax", "DataClone"], nf = ["Modify", "Bulk", "OpenFailed", "VersionChange", "Schema", "Upgrade", "InvalidTable", "MissingAPI", "NoSuchDatabase", "InvalidArgument", "SubTransaction", "Unsupported", "Internal", "DatabaseClosed", "PrematureCommit", "ForeignAwait"].concat(n0), nL = { VersionChanged: "Database version changed by other database connection", DatabaseClosed: "Database has been closed", Abort: "Transaction aborted", TransactionInactive: "Transaction has already completed or failed", MissingAPI: "IndexedDB API missing. Please visit https://tinyurl.com/y2uuvskb" };
 function Es(t, e) {
   this._e = Qi(), this.name = t, this.message = e;
 }
@@ -15627,14 +15627,14 @@ _s(Es).from(Error).extend({ stack: { get: function() {
   return this.name + ": " + this.message;
 } }), _s(hl).from(Es), _s(ho).from(Es);
 var rf = nf.reduce((t, e) => (t[e] = e + "Error", t), {});
-const r8 = Es;
+const rL = Es;
 var Je = nf.reduce((t, e) => {
   var n = e + "Error";
   function r(i, s) {
     this._e = Qi(), this.name = n, i ? typeof i == "string" ? (this.message = `${i}${s ? `
- ` + s : ""}`, this.inner = s || null) : typeof i == "object" && (this.message = `${i.name} ${i.message}`, this.inner = i) : (this.message = n8[e] || n, this.inner = null);
+ ` + s : ""}`, this.inner = s || null) : typeof i == "object" && (this.message = `${i.name} ${i.message}`, this.inner = i) : (this.message = nL[e] || n, this.inner = null);
   }
-  return _s(r).from(r8), t[e] = r, t;
+  return _s(r).from(rL), t[e] = r, t;
 }, {});
 Je.Syntax = SyntaxError, Je.Type = TypeError, Je.Range = RangeError;
 var bp = n0.reduce((t, e) => (t[e + "Error"] = Je[e], t), {}), Ha = nf.reduce((t, e) => (["Syntax", "Type", "Range"].indexOf(e) === -1 && (t[e + "Error"] = Je[e]), t), {});
@@ -15643,7 +15643,7 @@ function Bt() {
 function Ro(t) {
   return t;
 }
-function i8(t, e) {
+function iL(t, e) {
   return t == null || t === Ro ? e : function(n) {
     return e(t(n));
   };
@@ -15653,7 +15653,7 @@ function ji(t, e) {
     t.apply(this, arguments), e.apply(this, arguments);
   };
 }
-function s8(t, e) {
+function sL(t, e) {
   return t === Bt ? e : function() {
     var n = t.apply(this, arguments);
     n !== void 0 && (arguments[0] = n);
@@ -15663,14 +15663,14 @@ function s8(t, e) {
     return r && (this.onsuccess = this.onsuccess ? ji(r, this.onsuccess) : r), i && (this.onerror = this.onerror ? ji(i, this.onerror) : i), s !== void 0 ? s : n;
   };
 }
-function o8(t, e) {
+function oL(t, e) {
   return t === Bt ? e : function() {
     t.apply(this, arguments);
     var n = this.onsuccess, r = this.onerror;
     this.onsuccess = this.onerror = null, e.apply(this, arguments), n && (this.onsuccess = this.onsuccess ? ji(n, this.onsuccess) : n), r && (this.onerror = this.onerror ? ji(r, this.onerror) : r);
   };
 }
-function a8(t, e) {
+function aL(t, e) {
   return t === Bt ? e : function(n) {
     var r = t.apply(this, arguments);
     Ln(n, r);
@@ -15680,7 +15680,7 @@ function a8(t, e) {
     return i && (this.onsuccess = this.onsuccess ? ji(i, this.onsuccess) : i), s && (this.onerror = this.onerror ? ji(s, this.onerror) : s), r === void 0 ? o === void 0 ? void 0 : o : Ln(r, o);
   };
 }
-function l8(t, e) {
+function lL(t, e) {
   return t === Bt ? e : function() {
     return e.apply(this, arguments) !== !1 && t.apply(this, arguments);
   };
@@ -15707,7 +15707,7 @@ const i0 = 100, [Nc, pl, Ac] = typeof Promise > "u" ? [] : (() => {
   const e = crypto.subtle.digest("SHA-512", new Uint8Array([0]));
   return [e, Io(e), t];
 })(), s0 = pl && pl.then, Ka = Nc && Nc.constructor, of = !!Ac;
-var Ic = !1, u8 = Ac ? () => {
+var Ic = !1, uL = Ac ? () => {
   Ac.then(xa);
 } : Ut.setImmediate ? setImmediate.bind(null, xa) : Ut.MutationObserver ? () => {
   var t = document.createElement("div");
@@ -15717,7 +15717,7 @@ var Ic = !1, u8 = Ac ? () => {
 } : () => {
   setTimeout(xa, 0);
 }, po = function(t, e) {
-  io.push([t, e]), vl && (u8(), vl = !1);
+  io.push([t, e]), vl && (uL(), vl = !1);
 }, Rc = !0, vl = !0, $i = [], qa = [], Lc = null, Pc = Ro, Ss = { id: "global", global: !0, ref: 0, unhandleds: [], onunhandled: Ep, pgp: !1, env: {}, finalize: function() {
   this.unhandleds.forEach((t) => {
     try {
@@ -15805,11 +15805,11 @@ function af(t, e) {
     var n = t._state ? e.onFulfilled : e.onRejected;
     if (n === null)
       return (t._state ? e.resolve : e.reject)(t._value);
-    ++e.psd.ref, ++Di, po(c8, [n, t, e]);
+    ++e.psd.ref, ++Di, po(cL, [n, t, e]);
   } else
     t._listeners.push(e);
 }
-function c8(t, e, n) {
+function cL(t, e, n) {
   try {
     Lc = e;
     var r, i = e._value;
@@ -15966,10 +15966,10 @@ From previous: `);
   });
 }));
 const kn = { awaits: 0, echoes: 0, id: 0 };
-var d8 = 0, Ya = [], Ou = 0, ml = 0, f8 = 0;
+var dL = 0, Ya = [], Ou = 0, ml = 0, fL = 0;
 function wi(t, e, n, r) {
   var i = Ke, s = Object.create(i);
-  s.parent = i, s.ref = 0, s.global = !1, s.id = ++f8;
+  s.parent = i, s.ref = 0, s.global = !1, s.id = ++fL;
   var o = Ss.env;
   s.env = of ? { Promise: Me, PromiseProp: { value: Me, configurable: !0, writable: !0 }, all: Me.all, race: Me.race, allSettled: Me.allSettled, any: Me.any, resolve: Me.resolve, reject: Me.reject, nthen: wp(o.nthen, s), gthen: wp(o.gthen, s) } : {}, e && Ln(s, e), ++i.ref, s.finalize = function() {
     --this.parent.ref || this.parent.finalize();
@@ -15978,7 +15978,7 @@ function wi(t, e, n, r) {
   return s.ref === 0 && s.finalize(), a;
 }
 function Us() {
-  return kn.id || (kn.id = ++d8), ++kn.awaits, kn.echoes += i0, kn.id;
+  return kn.id || (kn.id = ++dL), ++kn.awaits, kn.echoes += i0, kn.id;
 }
 function Jr() {
   return !!kn.awaits && (--kn.awaits == 0 && (kn.id = 0), kn.echoes = kn.awaits * i0, !0);
@@ -15986,16 +15986,16 @@ function Jr() {
 function ka(t) {
   return kn.echoes && t && t.constructor === Ka ? (Us(), t.then((e) => (Jr(), e), (e) => (Jr(), dn(e)))) : t;
 }
-function h8(t) {
+function hL(t) {
   ++ml, kn.echoes && --kn.echoes != 0 || (kn.echoes = kn.id = 0), Ya.push(Ke), _i(t, !0);
 }
-function p8() {
+function pL() {
   var t = Ya[Ya.length - 1];
   Ya.pop(), _i(t, !1);
 }
 function _i(t, e) {
   var n = Ke;
-  if ((e ? !kn.echoes || Ou++ && t === Ke : !Ou || --Ou && t === Ke) || f0(e ? h8.bind(null, t) : p8), t !== Ke && (Ke = t, n === Ss && (Ss.env = d0()), of)) {
+  if ((e ? !kn.echoes || Ou++ && t === Ke : !Ou || --Ou && t === Ke) || f0(e ? hL.bind(null, t) : pL), t !== Ke && (Ke = t, n === Ss && (Ss.env = d0()), of)) {
     var r = Ss.env.Promise, i = t.env;
     pl.then = i.nthen, r.prototype.then = i.gthen, (n.global || t.global) && (Object.defineProperty(Ut, "Promise", i.PromiseProp), r.all = i.all, r.race = i.race, r.resolve = i.resolve, r.reject = i.reject, i.allSettled && (r.allSettled = i.allSettled), i.any && (r.any = i.any));
   }
@@ -16071,7 +16071,7 @@ function Bc(t, e, n, r) {
   }
   return t._state.dbReadyPromise.then(() => Bc(t, e, n, r));
 }
-const Sp = "3.2.4", Ri = String.fromCharCode(65535), Mc = -1 / 0, zr = "Invalid key provided. Keys must be of type string, number, Date or Array<string | number | Date>.", h0 = "String expected.", vo = [], Jl = typeof navigator < "u" && /(MSIE|Trident|Edge)/.test(navigator.userAgent), v8 = Jl, m8 = Jl, p0 = (t) => !/(dexie\.js|dexie\.min\.js)/.test(t), eu = "__dbnames", Nu = "readonly", Au = "readwrite";
+const Sp = "3.2.4", Ri = String.fromCharCode(65535), Mc = -1 / 0, zr = "Invalid key provided. Keys must be of type string, number, Date or Array<string | number | Date>.", h0 = "String expected.", vo = [], Jl = typeof navigator < "u" && /(MSIE|Trident|Edge)/.test(navigator.userAgent), vL = Jl, mL = Jl, p0 = (t) => !/(dexie\.js|dexie\.min\.js)/.test(t), eu = "__dbnames", Nu = "readonly", Au = "readwrite";
 function Ui(t, e) {
   return t ? e ? function() {
     return t.apply(this, arguments) && e.apply(this, arguments);
@@ -16081,7 +16081,7 @@ const v0 = { type: 3, lower: -1 / 0, lowerOpen: !1, upper: [[]], upperOpen: !1 }
 function Ta(t) {
   return typeof t != "string" || /\./.test(t) ? (e) => e : (e) => (e[t] === void 0 && t in e && delete (e = na(e))[t], e);
 }
-class g8 {
+class gL {
   _trans(e, n, r) {
     const i = this._tx || Ke.trans, s = this.name;
     function o(l, u, c) {
@@ -16285,7 +16285,7 @@ function mo(t) {
   function s(o, a, l) {
     if (typeof o != "object") {
       var u;
-      a || (a = l8), l || (l = Bt);
+      a || (a = lL), l || (l = Bt);
       var c = { subscribers: [], fire: l, subscribe: function(d) {
         c.subscribers.indexOf(d) === -1 && (c.subscribers.push(d), c.fire = a(c.fire, d));
       }, unsubscribe: function(d) {
@@ -16412,7 +16412,7 @@ function kp(t) {
 function Tp(t) {
   return t instanceof Uint8Array ? t : ArrayBuffer.isView(t) ? new Uint8Array(t.buffer, t.byteOffset, t.byteLength) : new Uint8Array(t);
 }
-class y8 {
+class yL {
   _read(e, n) {
     var r = this._ctx;
     return r.error ? r.table._trans(null, dn.bind(null, r.error)) : r.table._trans("readonly", e).then(n);
@@ -16638,7 +16638,7 @@ class y8 {
   }
   delete() {
     var e = this._ctx, n = e.range;
-    return is(e) && (e.isPrimKey && !m8 || n.type === 3) ? this._write((r) => {
+    return is(e) && (e.isPrimKey && !mL || n.type === 3) ? this._write((r) => {
       const { primaryKey: i } = e.table.core.schema, s = n;
       return e.table.core.count({ trans: r, query: { index: i, range: s } }).then((o) => e.table.core.mutate({ trans: r, type: "deleteRange", range: s }).then(({ failures: a, lastResult: l, results: u, numFailures: c }) => {
         if (c)
@@ -16649,10 +16649,10 @@ class y8 {
   }
 }
 const Lu = (t, e) => e.value = null;
-function b8(t, e) {
+function bL(t, e) {
   return t < e ? -1 : t === e ? 0 : 1;
 }
-function w8(t, e) {
+function wL(t, e) {
   return t > e ? -1 : t === e ? 0 : 1;
 }
 function Hn(t, e, n) {
@@ -16662,7 +16662,7 @@ function Hn(t, e, n) {
 function ss(t) {
   return new t.Collection(t, () => m0("")).limit(0);
 }
-function _8(t, e, n, r, i, s) {
+function _L(t, e, n, r, i, s) {
   for (var o = Math.min(t.length, r.length), a = -1, l = 0; l < o; ++l) {
     var u = e[l];
     if (u !== r[l])
@@ -16680,7 +16680,7 @@ function Na(t, e, n, r) {
       return f === "next" ? (m) => m.toUpperCase() : (m) => m.toLowerCase();
     }(b), s = function(f) {
       return f === "next" ? (m) => m.toLowerCase() : (m) => m.toUpperCase();
-    }(b), o = b === "next" ? b8 : w8;
+    }(b), o = b === "next" ? bL : wL;
     var p = n.map(function(f) {
       return { lower: s(f), upper: i(f) };
     }).sort(function(f, m) {
@@ -16706,7 +16706,7 @@ function Na(t, e, n, r) {
     if (e(g, l, y))
       return !0;
     for (var w = null, _ = y; _ < d; ++_) {
-      var E = _8(m, g, a[_], l[_], o, u);
+      var E = _L(m, g, a[_], l[_], o, u);
       E === null && w === null ? y = _ + 1 : (w === null || o(w, E) > 0) && (w = E);
     }
     return p(w !== null ? function() {
@@ -16861,7 +16861,7 @@ function Po(t) {
   t.stopPropagation && t.stopPropagation(), t.preventDefault && t.preventDefault();
 }
 const $o = "storagemutated", hi = "x-storagemutated-1", Ei = mo(null, $o);
-class E8 {
+class EL {
   _lock() {
     return ro(!Ke.global), ++this._reculock, this._reculock !== 1 || Ke.global || (Ke.lockOwnerFor = this), this;
   }
@@ -16991,11 +16991,11 @@ function Fc(t) {
 function Op(t) {
   return [].slice.call(t);
 }
-let S8 = 0;
+let SL = 0;
 function go(t) {
   return t == null ? ":id" : typeof t == "string" ? t : `[${t.join("+")}]`;
 }
-function x8(t, e, n) {
+function xL(t, e, n) {
   function r(l) {
     if (l.type === 3)
       return null;
@@ -17094,7 +17094,7 @@ function x8(t, e, n) {
           const k = C.result;
           if (!k)
             return void p(null);
-          k.___id = ++S8, k.done = !1;
+          k.___id = ++SL, k.done = !1;
           const N = k.continue.bind(k);
           let I = k.continuePrimaryKey;
           I && (I = I.bind(k));
@@ -17147,7 +17147,7 @@ function jc({ _novip: t }, e) {
   const n = e.db, r = function(i, s, { IDBKeyRange: o, indexedDB: a }, l) {
     return { dbcore: function(c, d) {
       return d.reduce((h, { create: v }) => ({ ...h, ...v(h) }), c);
-    }(x8(s, o, l), i.dbcore) };
+    }(xL(s, o, l), i.dbcore) };
   }(t._middlewares, n, t._deps, e);
   t.core = r.dbcore, t.tables.forEach((i) => {
     const s = i.name;
@@ -17173,10 +17173,10 @@ function Uc({ _novip: t }, e) {
       n[r] instanceof t.Table && delete n[r];
   });
 }
-function C8(t, e) {
+function CL(t, e) {
   return t._cfg.version - e._cfg.version;
 }
-function k8(t, e, n, r) {
+function kL(t, e, n, r) {
   const i = t._dbSchema, s = t._createTransaction("readwrite", t._storeNames, i);
   s.create(n), s._completion.catch(r);
   const o = s._reject.bind(s), a = Ke.transless || Ke;
@@ -17226,7 +17226,7 @@ function k8(t, e, n, r) {
             return k && typeof k.then == "function" ? Me.resolve(k) : N.then(() => k);
           }
         }), h.push((g) => {
-          (!b || !v8) && function(w, _) {
+          (!b || !vL) && function(w, _) {
             [].slice.call(_.db.objectStoreNames).forEach((E) => w[E] == null && _.db.deleteObjectStore(E));
           }(m._cfg.dbschema, g), Uc(l, [l.Transaction.prototype]), yl(l, [l.Transaction.prototype], l._storeNames, l._dbSchema), c.schema = l._dbSchema;
         });
@@ -17303,7 +17303,7 @@ function Hc({ _novip: t }, e, n) {
   }
   typeof navigator < "u" && /Safari/.test(navigator.userAgent) && !/(Chrome\/|Edge\/)/.test(navigator.userAgent) && Ut.WorkerGlobalScope && Ut instanceof Ut.WorkerGlobalScope && [].concat(navigator.userAgent.match(/Safari\/(\d*)/))[1] < 604 && (t._hasGetAll = !1);
 }
-class T8 {
+class TL {
   _parseStoresSpec(e, n) {
     an(e).forEach((r) => {
       if (e[r] !== null) {
@@ -17347,7 +17347,7 @@ function Kc(t) {
     return Ke.letThrough = !0, t();
   });
 }
-function O8() {
+function OL() {
   var t;
   return !navigator.userAgentData && /Safari\//.test(navigator.userAgent) && !/Chrom(e|ium)\//.test(navigator.userAgent) && indexedDB.databases ? new Promise(function(e) {
     var n = function() {
@@ -17358,7 +17358,7 @@ function O8() {
     return clearInterval(t);
   }) : Promise.resolve();
 }
-function N8(t) {
+function NL(t) {
   const e = t._state, { indexedDB: n } = t._deps;
   if (e.isBeingOpened || t.idbdb)
     return e.dbReadyPromise.then(() => e.dbOpenError ? dn(e.dbOpenError) : t);
@@ -17369,7 +17369,7 @@ function N8(t) {
       throw new Je.DatabaseClosed("db.open() was cancelled");
   }
   let s = e.dbReadyResolve, o = null, a = !1;
-  return Me.race([r, (typeof navigator > "u" ? Me.resolve() : O8()).then(() => new Me((l, u) => {
+  return Me.race([r, (typeof navigator > "u" ? Me.resolve() : OL()).then(() => new Me((l, u) => {
     if (i(), !n)
       throw new Je.MissingAPI();
     const c = t.name, d = e.autoSchema ? n.open(c) : n.open(c, Math.round(10 * t.verno));
@@ -17385,7 +17385,7 @@ function N8(t) {
       } else {
         o.onerror = _r(u);
         var v = h.oldVersion > Math.pow(2, 62) ? 0 : h.oldVersion;
-        a = v < 1, t._novip.idbdb = d.result, k8(t, v / 10, o, u);
+        a = v < 1, t._novip.idbdb = d.result, kL(t, v / 10, o, u);
       }
     }, u), d.onsuccess = Ht(() => {
       o = null;
@@ -17440,7 +17440,7 @@ function qc(t) {
   }
   return i(e)();
 }
-function A8(t, e, n) {
+function AL(t, e, n) {
   var r = arguments.length;
   if (r < 2)
     throw new Je.InvalidArgument("Too few arguments");
@@ -17479,7 +17479,7 @@ function Aa(t, e, n) {
     r.push(e);
   return r;
 }
-const I8 = { stack: "dbcore", name: "VirtualIndexMiddleware", level: 1, create: function(t) {
+const IL = { stack: "dbcore", name: "VirtualIndexMiddleware", level: 1, create: function(t) {
   return { ...t, table(e) {
     const n = t.table(e), { schema: r } = n, i = {}, s = [];
     function o(c, d, h) {
@@ -17528,7 +17528,7 @@ function df(t, e, n, r) {
     Xn(t, i) || (n[r + i] = e[i]);
   }), n;
 }
-const R8 = { stack: "dbcore", name: "HooksMiddleware", level: 2, create: (t) => ({ ...t, table(e) {
+const RL = { stack: "dbcore", name: "HooksMiddleware", level: 2, create: (t) => ({ ...t, table(e) {
   const n = t.table(e), { primaryKey: r } = n.schema;
   return { ...n, mutate(s) {
     const o = Ke.trans, { deleting: a, creating: l, updating: u } = o.table(e).hook;
@@ -17606,7 +17606,7 @@ function E0(t, e, n) {
     return null;
   }
 }
-const L8 = { stack: "dbcore", level: -1, create: (t) => ({ table: (e) => {
+const LL = { stack: "dbcore", level: -1, create: (t) => ({ table: (e) => {
   const n = t.table(e);
   return { ...n, getMany: (r) => {
     if (!r.cache)
@@ -17647,7 +17647,7 @@ function bl(t, e) {
     Bo(r, i, s), o && n(r, o), a && n(r, a);
   }(t, e);
 }
-function P8(t, e) {
+function PL(t, e) {
   const n = Gc(e);
   let r = n.next();
   if (r.done)
@@ -17710,7 +17710,7 @@ Ps(Vr.prototype, { add(t) {
 }, [Tc]() {
   return Gc(this);
 } });
-const $8 = { stack: "dbcore", level: 0, create: (t) => {
+const $L = { stack: "dbcore", level: 0, create: (t) => {
   const e = t.schema.name, n = new Vr(t.MIN_KEY, t.MAX_KEY);
   return { ...t, table: (r) => {
     const i = t.table(r), { schema: s } = i, { primaryKey: o } = s, { extractKey: a, outbound: l } = o, u = { ...i, mutate: (h) => {
@@ -17812,7 +17812,7 @@ class Bi {
           });
         }
       });
-    }), this.Collection = (o = this, Zs(y8.prototype, function(a, l) {
+    }), this.Collection = (o = this, Zs(yL.prototype, function(a, l) {
       this.db = o;
       let u = v0, c = null;
       if (l)
@@ -17824,11 +17824,11 @@ class Bi {
       const d = a._ctx, h = d.table, v = h.hook.reading.fire;
       this._ctx = { table: h, index: d.index, isPrimKey: !d.index || h.schema.primKey.keyPath && d.index === h.schema.primKey.name, range: u, keysOnly: !1, dir: "next", unique: "", algorithm: null, filter: null, replayFilter: null, justLimit: !0, isMatch: null, offset: 0, limit: 1 / 0, error: c, or: d.or, valueMapper: v !== Ro ? v : null };
     })), this.Table = function(a) {
-      return Zs(g8.prototype, function(l, u, c) {
-        this.db = a, this._tx = c, this.name = l, this.schema = u, this.hook = a._allTables[l] ? a._allTables[l].hook : mo(null, { creating: [s8, Bt], reading: [i8, Ro], updating: [a8, Bt], deleting: [o8, Bt] });
+      return Zs(gL.prototype, function(l, u, c) {
+        this.db = a, this._tx = c, this.name = l, this.schema = u, this.hook = a._allTables[l] ? a._allTables[l].hook : mo(null, { creating: [sL, Bt], reading: [iL, Ro], updating: [aL, Bt], deleting: [oL, Bt] });
       });
     }(this), this.Transaction = function(a) {
-      return Zs(E8.prototype, function(l, u, c, d, h) {
+      return Zs(EL.prototype, function(l, u, c, d, h) {
         this.db = a, this.mode = l, this.storeNames = u, this.schema = c, this.chromeTransactionDurability = d, this.idbtrans = null, this.on = mo(this, "complete", "error", "abort"), this.parent = h || null, this.active = !0, this._reculock = 0, this._blockedFuncs = [], this._resolve = null, this._reject = null, this._waitingFor = null, this._waitingQueue = null, this._spinCount = 0, this._completion = new Me((v, y) => {
           this._resolve = v, this._reject = y;
         }), this._completion.then(() => {
@@ -17839,7 +17839,7 @@ class Bi {
         });
       });
     }(this), this.Version = function(a) {
-      return Zs(T8.prototype, function(l) {
+      return Zs(TL.prototype, function(l) {
         this.db = a, this._cfg = { version: l, storesSource: null, dbschema: {}, tables: {}, contentUpgrade: null };
       });
     }(this), this.WhereClause = function(a) {
@@ -17856,7 +17856,7 @@ class Bi {
       !a.newVersion || a.newVersion < a.oldVersion ? console.warn(`Dexie.delete('${this.name}') was blocked`) : console.warn(`Upgrade '${this.name}' blocked by other connection holding version ${a.oldVersion / 10}`);
     }), this._maxKey = Do(n.IDBKeyRange), this._createTransaction = (a, l, u, c) => new this.Transaction(a, l, u, this._options.chromeTransactionDurability, c), this._fireOnBlocked = (a) => {
       this.on("blocked").fire(a), vo.filter((l) => l.name === this.name && l !== this && !l._state.vcFired).map((l) => l.on("versionchange").fire(a));
-    }, this.use(I8), this.use(R8), this.use($8), this.use(L8), this.vip = Object.create(this, { _vip: { value: !0 } }), i.forEach((a) => a(this));
+    }, this.use(IL), this.use(RL), this.use($L), this.use(LL), this.vip = Object.create(this, { _vip: { value: !0 } }), i.forEach((a) => a(this));
   }
   version(e) {
     if (isNaN(e) || e < 0.1)
@@ -17866,7 +17866,7 @@ class Bi {
     this.verno = Math.max(this.verno, e);
     const n = this._versions;
     var r = n.filter((i) => i._cfg.version === e)[0];
-    return r || (r = new this.Version(e), n.push(r), n.sort(C8), r.stores({}), this._state.autoSchema = !1, r);
+    return r || (r = new this.Version(e), n.push(r), n.sort(CL), r.stores({}), this._state.autoSchema = !1, r);
   }
   _whenReady(e) {
     return this.idbdb && (this._state.openComplete || Ke.letThrough || this._vip) ? e() : new Me((n, r) => {
@@ -17889,7 +17889,7 @@ class Bi {
     return e && this._middlewares[e] && (this._middlewares[e] = this._middlewares[e].filter((i) => r ? i.create !== r : !!n && i.name !== n)), this;
   }
   open() {
-    return N8(this);
+    return NL(this);
   }
   _close() {
     const e = this._state, n = vo.indexOf(this);
@@ -17948,7 +17948,7 @@ class Bi {
     return an(this._allTables).map((e) => this._allTables[e]);
   }
   transaction() {
-    const e = A8.apply(this, arguments);
+    const e = AL.apply(this, arguments);
     return this._transaction.apply(this, e);
   }
   _transaction(e, n, r) {
@@ -17998,15 +17998,15 @@ class Bi {
     return this._allTables[e];
   }
 }
-const D8 = typeof Symbol < "u" && "observable" in Symbol ? Symbol.observable : "@@observable";
-class B8 {
+const DL = typeof Symbol < "u" && "observable" in Symbol ? Symbol.observable : "@@observable";
+class BL {
   constructor(e) {
     this._subscribe = e;
   }
   subscribe(e, n, r) {
     return this._subscribe(e && typeof e != "function" ? e : { next: e, error: n, complete: r });
   }
-  [D8]() {
+  [DL]() {
     return this;
   }
 }
@@ -18015,9 +18015,9 @@ function S0(t, e) {
     bl(t[n] || (t[n] = new Vr()), e[n]);
   }), t;
 }
-function M8(t) {
+function ML(t) {
   let e, n = !1;
-  const r = new B8((i) => {
+  const r = new BL((i) => {
     const s = tf(t);
     let o = !1, a = {}, l = {};
     const u = { get closed() {
@@ -18028,7 +18028,7 @@ function M8(t) {
     i.start && i.start(u);
     let c = !1, d = !1;
     function h() {
-      return an(l).some((b) => a[b] && P8(a[b], l[b]));
+      return an(l).some((b) => a[b] && PL(a[b], l[b]));
     }
     const v = (b) => {
       S0(a, b), h() && y();
@@ -18097,7 +18097,7 @@ Ps(Ti, { ...Ha, delete: (t) => new Ti(t, { addons: [] }).delete(), exists: (t) =
   return Ke.trans ? Ke.trans.waitFor(n) : n;
 }, Promise: Me, debug: { get: () => Dr, set: (t) => {
   e0(t, t === "dexie" ? () => !0 : p0);
-} }, derive: _s, extend: Ln, props: Ps, override: Gg, Events: mo, on: Ei, liveQuery: M8, extendObservabilitySet: S0, getByKeyPath: Gr, setByKeyPath: vr, delByKeyPath: function(t, e) {
+} }, derive: _s, extend: Ln, props: Ps, override: Gg, Events: mo, on: Ei, liveQuery: ML, extendObservabilitySet: S0, getByKeyPath: Gr, setByKeyPath: vr, delByKeyPath: function(t, e) {
   typeof e == "string" ? vr(t, e, void 0) : "length" in e && [].map.call(e, function(n) {
     vr(t, n, void 0);
   });
@@ -18142,11 +18142,11 @@ Me.rejectionMapper = function(t, e) {
     return this.inner.stack;
   } }), n;
 }, e0(Dr, p0);
-const z8 = new Bi("library");
-z8.version(1).stores({
+const zL = new Bi("library");
+zL.version(1).stores({
   books: "++id, name, buffer, md5 ,size"
 });
-var Ip = {}, F8 = {
+var Ip = {}, FL = {
   get exports() {
     return Ip;
   },
@@ -18303,14 +18303,14 @@ var Ip = {}, F8 = {
       return m ? b(w) : w;
     }, p;
   });
-})(F8);
+})(FL);
 /*!
   * pinia v2.0.23
   * (c) 2022 Eduardo San Martin Morote
   * @license MIT
   */
 let so;
-const wl = (t) => so = t, j8 = process.env.NODE_ENV !== "production" ? Symbol("pinia") : (
+const wl = (t) => so = t, jL = process.env.NODE_ENV !== "production" ? Symbol("pinia") : (
   /* istanbul ignore next */
   Symbol()
 );
@@ -18357,12 +18357,12 @@ function Xc(t, e) {
   }
   return t;
 }
-const U8 = process.env.NODE_ENV !== "production" ? Symbol("pinia:skipHydration") : (
+const UL = process.env.NODE_ENV !== "production" ? Symbol("pinia:skipHydration") : (
   /* istanbul ignore next */
   Symbol()
 );
-function V8(t) {
-  return !Vi(t) || !t.hasOwnProperty(U8);
+function VL(t) {
+  return !Vi(t) || !t.hasOwnProperty(UL);
 }
 const { assign: dr } = Object;
 function Lp(t) {
@@ -18494,7 +18494,7 @@ function Zc(t, e, n = {}, r, i, s) {
   for (const k in T) {
     const N = T[k];
     if (on(N) && !Lp(N) || Bl(N))
-      process.env.NODE_ENV !== "production" && i ? ha(b.value, k, Tn(T, k)) : s || (y && V8(N) && (on(N) ? N.value = y[k] : Xc(N, y[k])), r.state.value[t][k] = N), process.env.NODE_ENV !== "production" && _.state.push(k);
+      process.env.NODE_ENV !== "production" && i ? ha(b.value, k, Tn(T, k)) : s || (y && VL(N) && (on(N) ? N.value = y[k] : Xc(N, y[k])), r.state.value[t][k] = N), process.env.NODE_ENV !== "production" && _.state.push(k);
     else if (typeof N == "function") {
       const I = process.env.NODE_ENV !== "production" && i ? N : w(k, N);
       T[k] = I, process.env.NODE_ENV !== "production" && (_.actions[k] = N), a.actions[k] = N;
@@ -18576,7 +18576,7 @@ function Zc(t, e, n = {}, r, i, s) {
 	state: () => new MyClass()
 Found in store "${C.$id}".`), y && s && n.hydrate && n.hydrate(C.$state, y), u = !0, c = !0, C;
 }
-function W8(t, e, n) {
+function WL(t, e, n) {
   let r, i;
   const s = typeof e == "function";
   typeof t == "string" ? (r = t, i = s ? n : e) : (i = t, r = t.id);
@@ -18584,7 +18584,7 @@ function W8(t, e, n) {
     const u = ht();
     if (a = // in test mode, ignore the argument provided as we can always retrieve a
     // pinia instance with getActivePinia()
-    (process.env.NODE_ENV === "test" && so && so._testing ? null : a) || u && tt(j8), a && wl(a), process.env.NODE_ENV !== "production" && !so)
+    (process.env.NODE_ENV === "test" && so && so._testing ? null : a) || u && tt(jL), a && wl(a), process.env.NODE_ENV !== "production" && !so)
       throw new Error(`[🍍]: getActivePinia was called with no active Pinia. Did you forget to install pinia?
 	const pinia = createPinia()
 	app.use(pinia)
@@ -18604,7 +18604,7 @@ This will fail in production.`);
   }
   return o.$id = r, o;
 }
-function H8(t) {
+function HL(t) {
   {
     t = yi(t);
     const e = {};
@@ -18616,7 +18616,7 @@ function H8(t) {
     return e;
   }
 }
-const K8 = [
+const KL = [
   {
     date: "2018-10-20T16:00:00+00:00",
     creator: "陈浩基",
@@ -18634,14 +18634,14 @@ const K8 = [
     size: 435507,
     from: "url"
   }
-], Ws = W8("reader", {
+], Ws = WL("reader", {
   state: () => ({
     theme: "default",
     flow: "paginated",
     font: "",
     lineSpacing: 1.5,
     fontSize: 100,
-    bookList: K8
+    bookList: KL
   }),
   actions: {
     setTheme(t) {
@@ -18676,7 +18676,7 @@ const K8 = [
   },
   persist: !0
 });
-const q8 = { class: "image-slot" }, G8 = { key: 0 }, Y8 = { key: 1 }, X8 = { key: 2 }, Z8 = ["title"], Q8 = { key: 3 }, J8 = { key: 4 }, eP = { key: 5 }, tP = { key: 6 }, nP = {
+const qL = { class: "image-slot" }, GL = { key: 0 }, YL = { key: 1 }, XL = { key: 2 }, ZL = ["title"], QL = { key: 3 }, JL = { key: 4 }, eP = { key: 5 }, tP = { key: 6 }, nP = {
   __name: "Home",
   props: {
     useMin: {
@@ -18695,7 +18695,7 @@ const q8 = { class: "image-slot" }, G8 = { key: 0 }, Y8 = { key: 1 }, X8 = { key
     console.log("Imported Books: ", n.bookList.length);
     const r = n.bookList.sort((z, G) => z.lastOpen && G.lastOpen ? G.lastOpen - z.lastOpen : 1);
     console.log("Books: ", r);
-    const { saveAs: i } = qL, s = K(null), o = K(null), a = Pn({
+    const { saveAs: i } = q8, s = K(null), o = K(null), a = Pn({
       maxColWidth: 280,
       gap: 32
     });
@@ -18752,7 +18752,7 @@ const q8 = { class: "image-slot" }, G8 = { key: 0 }, Y8 = { key: 1 }, X8 = { key
     }, T = (z) => z / 1024 / 1024 > 1 ? parseFloat(z / 1024 / 1024 + "").toFixed(2) + "Mb" : parseInt(z / 1024 + "") + "Kb", k = (z) => {
       i("/books/" + z, z);
     }, N = e, I = (z) => {
-      N("update:currentBook", z);
+      console.log("Reader book url type: ", typeof z.url), console.log("Reader book byte length: ", z.url.byteLength), console.log("Reader book url: ", z.url), N("update:currentBook", z);
     }, P = async (z) => {
       const { raw: G, name: J, size: M } = z, U = new FileReader();
       U.onerror = (j) => {
@@ -18764,7 +18764,7 @@ const q8 = { class: "image-slot" }, G8 = { key: 0 }, Y8 = { key: 1 }, X8 = { key
       n.delBook(z);
     };
     return (z, G) => {
-      const J = Xi, M = $L, U = _t, j = p3, re = HI, fe = ta, Y = zA, le = Sg, ce = Eg;
+      const J = Xi, M = $8, U = _t, j = p3, re = HI, fe = ta, Y = zA, le = Sg, ce = Eg;
       return V(), Ce(ce, { direction: "vertical" }, {
         default: de(() => [
           ve(Kg, {
@@ -18820,7 +18820,7 @@ const q8 = { class: "image-slot" }, G8 = { key: 0 }, Y8 = { key: 1 }, X8 = { key
                         class: "el-image"
                       }, {
                         error: de(() => [
-                          ae("div", q8, [
+                          ae("div", qL, [
                             ve(U, null, {
                               default: de(() => [
                                 ve(x(VC))
@@ -18872,16 +18872,16 @@ const q8 = { class: "image-slot" }, G8 = { key: 0 }, Y8 = { key: 1 }, X8 = { key
                               }, 1032, ["icon", "onClick"])
                             ]),
                             ve(re),
-                            me.title ? (V(), se("p", G8, "Title: " + st(me.title), 1)) : ye("", !0),
-                            me.creator ? (V(), se("p", Y8, "Creator: " + st(me.creator), 1)) : ye("", !0),
-                            me.description ? (V(), se("p", X8, [
+                            me.title ? (V(), se("p", GL, "Title: " + st(me.title), 1)) : ye("", !0),
+                            me.creator ? (V(), se("p", YL, "Creator: " + st(me.creator), 1)) : ye("", !0),
+                            me.description ? (V(), se("p", XL, [
                               cn(" Description: "),
                               ae("span", {
                                 title: me.description
-                              }, st(y(me.description, 30)), 9, Z8)
+                              }, st(y(me.description, 30)), 9, ZL)
                             ])) : ye("", !0),
-                            me.publisher ? (V(), se("p", Q8, "Publisher: " + st(me.publisher), 1)) : ye("", !0),
-                            me.date ? (V(), se("p", J8, " Pub Date: " + st(b(me.date) || b(me.publishDate)), 1)) : ye("", !0),
+                            me.publisher ? (V(), se("p", QL, "Publisher: " + st(me.publisher), 1)) : ye("", !0),
+                            me.date ? (V(), se("p", JL, " Pub Date: " + st(b(me.date) || b(me.publishDate)), 1)) : ye("", !0),
                             me.language ? (V(), se("p", eP, "Language: " + st(me.language), 1)) : ye("", !0),
                             me.size ? (V(), se("p", tP, "File Size: " + st(T(me.size)), 1)) : ye("", !0)
                           ])
@@ -18901,7 +18901,7 @@ const q8 = { class: "image-slot" }, G8 = { key: 0 }, Y8 = { key: 1 }, X8 = { key
       });
     };
   }
-}, rP = /* @__PURE__ */ Zi(nP, [["__scopeId", "data-v-e48b4b8d"]]);
+}, rP = /* @__PURE__ */ Zi(nP, [["__scopeId", "data-v-8880a628"]]);
 var _l = {}, iP = {
   get exports() {
     return _l;
@@ -33078,7 +33078,7 @@ const sD = (t) => (wv("data-v-3bf5a8c5"), t = t(), _v(), t), oD = /* @__PURE__ *
       i("node-click", o);
     };
     return (o, a) => {
-      const l = Xi, u = rL, c = ta;
+      const l = Xi, u = r8, c = ta;
       return V(), Ce(c, {
         "popper-class": `popper ${x(n).theme}`,
         placement: "bottom",
@@ -33178,7 +33178,7 @@ const Hs = (t) => (wv("data-v-b4a6d1f6"), t = t(), _v(), t), dD = { class: "tabl
   __name: "ThemeMenu",
   emits: ["style-change", "theme-change", "flow-change"],
   setup(t, { emit: e }) {
-    const n = Ws(), { lineSpacing: r, theme: i, flow: s, font: o, fontSize: a } = H8(n), l = e, u = () => {
+    const n = Ws(), { lineSpacing: r, theme: i, flow: s, font: o, fontSize: a } = HL(n), l = e, u = () => {
       const c = {
         p: {
           "font-family": o.value !== "" ? `${o.value} !important` : "!invalid-hack",
@@ -33549,7 +33549,11 @@ const AD = {
   },
   emits: ["update:showReader", "theme-change"],
   setup(t, { emit: e }) {
-    const n = Ws(), r = t, i = K(!1), s = K({}), o = K(""), a = F(() => r.bookInfo.url ? `/books/${r.bookInfo.url}` : r.bookInfo);
+    const n = Ws(), r = t, i = K(!1), s = K({}), o = K(""), a = F(async () => await $fetch("/api/books/getBookFile", {
+      method: "GET",
+      responseType: "arrayBuffer",
+      params: { filePath: `${r.bookInfo.url}` }
+    }));
     let l = null, u = null;
     const c = (Y) => {
       l = Y;
@@ -33666,7 +33670,7 @@ const AD = {
       l.annotations.highlight(Y);
     };
     return (Y, le) => {
-      const ce = Xi, me = Zm, _e = Og, ze = Sg, Oe = PR, Qe = zI, Be = Eg, He = jL;
+      const ce = Xi, me = Zm, _e = Og, ze = Sg, Oe = PR, Qe = zI, Be = Eg, He = j8;
       return V(), Ce(Be, { direction: "vertical" }, {
         default: de(() => [
           ve(Kg, { title: o.value }, {
@@ -33750,7 +33754,7 @@ const AD = {
       });
     };
   }
-}, ID = /* @__PURE__ */ Zi(AD, [["__scopeId", "data-v-dc866de6"]]);
+}, ID = /* @__PURE__ */ Zi(AD, [["__scopeId", "data-v-d6d34bf1"]]);
 const RD = {
   name: "ReaderStart"
 }, LD = Object.assign(RD, {

@@ -85,7 +85,7 @@ const currentBook = ref({})
 const title = ref('')
 const url = computed(async () => {
   
-  const response = await $fetch('/api/books/getBookFile', {
+  const response = await $fetch('/api/readibles/getReadibleFile', {
       method: 'GET',
       responseType: 'arrayBuffer',
       params: { filePath: `${props.bookInfo.url}` }

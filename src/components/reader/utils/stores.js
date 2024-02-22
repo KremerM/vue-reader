@@ -29,11 +29,12 @@ export const useReaderStore = defineStore('reader', {
         this.bookList[index] = info
       }
     },
-    addBook({ pubDate, author, language, title, coverPath, url}) {
+    addBook({ id, uuid, pubDate, author, language, title, coverPath, url}) {
       const book = {
+        readibleId: id,
         date: pubDate,
         creator: author,
-        UUID: "DB108833-1D43-4711-A2D0-240E07B37352",
+        UUID: uuid,
         language: language,
         title: title,
         coverPath: coverPath,
@@ -42,7 +43,6 @@ export const useReaderStore = defineStore('reader', {
         size: 435507,
         from: "url"
       }
-      console.log("push book")
       this.bookList.push(book)
     },
     delBook(id) {

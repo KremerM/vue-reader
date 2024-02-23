@@ -45,10 +45,30 @@ export const useReaderStore = defineStore('reader', {
       }
       this.bookList.push(book)
     },
-    delBook(id) {
-      const index = this.bookList.findIndex((item) => id === item.id)
+    hasBook(readibleId) {
+      for (let i = 0; i < this.bookList.length; i++){
+        if (this.bookList[i].readibleId){
+          if (this.bookList[i].readibleId === readibleId){
+            return true
+          }
+        }
+      }
+      return false
+    },
+    delBook(bookIndex) {
+      const index = this.bookList.findIndex((item) => bookIndex === item.id)
       if (index > -1) {
         this.bookList.splice(index, 1)
+      }
+    },
+    delBookByID(readibleId) {
+      for (let i = 0; i < this.bookList.length; i++){
+        if (this.bookList[i].readibleId){
+          if (this.bookList[i].readibleId === readibleId){
+            this.delBook(i)
+            return
+          }
+        }
       }
     },
   },

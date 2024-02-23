@@ -18670,9 +18670,22 @@ const K8 = [
       };
       this.bookList.push(l);
     },
+    hasBook(t) {
+      for (let e = 0; e < this.bookList.length; e++)
+        if (this.bookList[e].readibleId && this.bookList[e].readibleId === t)
+          return !0;
+      return !1;
+    },
     delBook(t) {
       const e = this.bookList.findIndex((n) => t === n.id);
       e > -1 && this.bookList.splice(e, 1);
+    },
+    delBookByID(t) {
+      for (let e = 0; e < this.bookList.length; e++)
+        if (this.bookList[e].readibleId && this.bookList[e].readibleId === t) {
+          this.delBook(e);
+          return;
+        }
     }
   },
   persist: !0

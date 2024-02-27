@@ -33768,15 +33768,30 @@ const AD = {
       });
     };
   }
-}, ID = /* @__PURE__ */ Zi(AD, [["__scopeId", "data-v-1006c9f3"]]);
+}, ID = /* @__PURE__ */ Zi(AD, [["__scopeId", "data-v-2ca3727e"]]);
 const RD = {
   name: "ReaderStart"
 }, LD = Object.assign(RD, {
+  props: {
+    passedBook: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   setup(t) {
-    const e = Ws(), n = K(!1), r = K({}), i = (s) => {
-      r.value = s, n.value = !0;
+    const e = Ws(), n = K(!1), r = K({}), i = t, s = (o) => {
+      r.value = o, n.value = !0;
     };
-    return (s, o) => (V(), se("div", {
+    return ke(
+      i.passedBook,
+      (o, a) => {
+        o !== a && o && s(o);
+      },
+      {
+        immediate: !0
+        // This ensures the watcher is triggered immediately
+      }
+    ), (o, a) => (V(), se("div", {
       id: "index",
       ref: "app",
       class: ee("reader-" + x(e).theme)
@@ -33785,9 +33800,9 @@ const RD = {
         default: de(() => [
           n.value ? ye("", !0) : (V(), Ce(rP, {
             key: 0,
-            "onUpdate:currentBook": i,
+            "onUpdate:currentBook": s,
             showReader: n.value,
-            "onUpdate:showReader": o[0] || (o[0] = (a) => n.value = a)
+            "onUpdate:showReader": a[0] || (a[0] = (l) => n.value = l)
           }, null, 8, ["showReader"]))
         ]),
         _: 1
@@ -33797,14 +33812,14 @@ const RD = {
           n.value ? (V(), Ce(ID, {
             key: 0,
             bookInfo: r.value,
-            "onUpdate:showReader": o[1] || (o[1] = (a) => n.value = a)
+            "onUpdate:showReader": a[1] || (a[1] = (l) => n.value = l)
           }, null, 8, ["bookInfo"])) : ye("", !0)
         ]),
         _: 1
       })
     ], 2));
   }
-}), PD = /* @__PURE__ */ Zi(LD, [["__scopeId", "data-v-e6b91ae5"]]), BD = {
+}), PD = /* @__PURE__ */ Zi(LD, [["__scopeId", "data-v-3cc4b766"]]), BD = {
   install: (t) => {
     t.component("ReaderStart", PD);
   }

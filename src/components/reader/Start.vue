@@ -2,19 +2,11 @@
   <div id="index" ref="app" :class="'reader-' + reader.theme">
     <!-- Home -->
     <transition name="el-fade-in-linear">
-      <Home
-        @update:currentBook="updateBook"
-        v-model:showReader="showReader"
-        v-if="!showReader"
-      />
+      <Home @update:currentBook="updateBook" v-model:showReader="showReader" v-if="!showReader" />
     </transition>
     <!-- Reader -->
     <transition name="el-fade-in-linear">
-      <Reader
-        :bookInfo="currentBook"
-        v-if="showReader"
-        @update:showReader="(val) => (showReader = val)"
-      />
+      <Reader :bookInfo="currentBook" v-if="showReader" @update:showReader="(val) => (showReader = val)" />
     </transition>
   </div>
 </template>
@@ -23,16 +15,35 @@
 import Home from './Home.vue'
 import Reader from './Reader.vue'
 import { useReaderStore } from './utils/stores'
-import { ref } from 'vue'
+import { ref, watch, onMounted } from 'vue';
 
 const reader = useReaderStore()
 const showReader = ref(false)
 const currentBook = ref({})
 
+const props = defineProps({
+  passedBook: {
+    type: Object,
+    default: () => ({})
+  }
+});
+
 const updateBook = (info) => {
   currentBook.value = info
   showReader.value = true
 }
+
+watch(props.passedBook, (newValue, oldValue) => {
+    // myFunction will be called immediately only if myProp is given
+    if (newValue !== oldValue) {
+      if (newValue)
+        updateBook(newValue);
+    }
+  },
+  {
+    immediate: true, // This ensures the watcher is triggered immediately
+  }
+);
 </script>
 
 <script>
@@ -54,8 +65,7 @@ $padding: 4px;
 </style>
 
 <style lang="scss">
-::-webkit-scrollbar {
-}
+::-webkit-scrollbar {}
 
 html,
 body {

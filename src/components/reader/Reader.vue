@@ -11,32 +11,16 @@
       <!-- <bookmark-menu :bookmarks="currentBook.bookmarks" @node-click="onNodeClick" @add-bookmark="addBookmark"
                 @remove-bookmark="removeBookmark" /> -->
 
-      <search-menu
-        :search-result="searchResult"
-        @node-click="onNodeClick"
-        @search="search"
-      />
+      <search-menu :search-result="searchResult" @node-click="onNodeClick" @search="search" />
 
-      <theme-menu
-        @theme-change="applytheme"
-        @flow-change="applyflow"
-        @style-change="updateStyle"
-      />
+      <theme-menu @theme-change="applytheme" @flow-change="applyflow" @style-change="updateStyle" />
     </titlebar>
 
     <el-main class="container">
-      <EpubView
-        id="reader"
-        :url="url"
-        :getRendition="getRendition"
-        :title="page"
-        v-loading="!isReady"
-        :epubOptions="{
-          allowPopups: true,
-          allowScriptedContent: true,
-        }"
-        @update:location="locationChange"
-      >
+      <EpubView id="reader" :url="url" :getRendition="getRendition" :title="page" v-loading="!isReady" :epubOptions="{
+      allowPopups: true,
+      allowScriptedContent: true,
+    }" @update:location="locationChange">
         <template #loadingView>
           <el-progress :percentage="loadProcess" />
         </template>
@@ -44,12 +28,8 @@
     </el-main>
 
     <el-footer height="45">
-      <el-slider
-        v-model="sliderValue"
-        :step="0.01"
-        :format-tooltip="lableFromPercentage"
-        @change="onSliderValueChange"
-      ></el-slider>
+      <el-slider v-model="sliderValue" :step="0.01" :format-tooltip="lableFromPercentage"
+        @change="onSliderValueChange"></el-slider>
     </el-footer>
 
     <buble-menu ref="bubleMenu" @highlight-btn-click="highlightSelection" />
@@ -58,6 +38,7 @@
 <script setup>
 //https://github.com/code-farmer-i/vue-markdown-editor.git
 //https://github.com/hepengwei/visualization-collection
+import Cookies from 'js-cookie';
 import { db } from './utils/db'
 import { Back, Grid } from '@element-plus/icons-vue'
 import { EpubView } from '../../modules/index'
@@ -71,7 +52,7 @@ import selectListener from '../../modules/utils/listener/select'
 import { getInfo } from './utils/dbUtilis'
 import { dark, tan } from './utils/themes'
 import { useReaderStore } from './utils/stores'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, inject } from 'vue'
 
 const reader = useReaderStore()
 
@@ -80,17 +61,31 @@ const props = defineProps({
     type: [Object, Number, ArrayBuffer],
   },
 })
+
 const isReady = ref(false)
 const currentBook = ref({})
 const title = ref('')
+
+const token = ref(null);
+const storedData = Cookies.get('userStore');
+if (storedData) {
+  const parsedData = JSON.parse(storedData);
+  token.value = parsedData.authToken;
+}
+
+
 const url = computed(async () => {
   const response = await $fetch('/api/readibles/getReadibleFile', {
-      method: 'GET',
-      responseType: 'arrayBuffer',
-      params: { filePath: `${props.bookInfo.url}` }
-    });
+    method: 'GET',
+    responseType: 'arrayBuffer',
+    params: { filePath: `${props.bookInfo.url}` },
+    headers: {
+      Authorization: `Bearer ${token.value}`
+    }
+  });
   return response
 })
+
 let rendition = null,
   flattenedToc = null
 
@@ -345,9 +340,8 @@ const addBookmark = () => {
   const { href, cfi, percentage } = location.start
 
   // TODO : find more minigful name for bookmark
-  const title = `${this.lableFromPercentage(percentage * 100)} : At ${
-    Math.floor(progress.value * 1000) / 10
-  }%`
+  const title = `${this.lableFromPercentage(percentage * 100)} : At ${Math.floor(progress.value * 1000) / 10
+    }%`
 
   const bookmark = {
     label: title,
@@ -376,6 +370,7 @@ const removeBookmark = (bookmark) => {
   padding-right: 8px;
   margin: 5px;
 }
+
 #reader {
   user-select: none;
   height: 100%;

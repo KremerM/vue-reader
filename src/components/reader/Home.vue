@@ -11,7 +11,7 @@
         <div v-for="(info, index) in bookList" :key="index">
           <!-- 主体 -->
           <el-card @click="readerBook(info)" ref="card" shadow="hover" class="box-card" :body-style="{ padding: '0px' }">
-            <el-image :lazy="true" :src="info.coverPath" fit="fill" class="el-image">
+            <el-image :lazy="true" :src="info.coverPath" fit="fill" class="el-image" crossOrigin="anonymous">
               <template #error>
                 <div class="image-slot">
                   <el-icon><icon-picture /></el-icon>

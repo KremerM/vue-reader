@@ -18831,7 +18831,8 @@ const Y8 = { class: "image-slot" }, X8 = { key: 0 }, Z8 = { key: 1 }, Q8 = { key
                         lazy: !0,
                         src: de.coverPath,
                         fit: "fill",
-                        class: "el-image"
+                        class: "el-image",
+                        crossOrigin: "anonymous"
                       }, {
                         error: he(() => [
                           ae("div", Y8, [
@@ -18915,7 +18916,7 @@ const Y8 = { class: "image-slot" }, X8 = { key: 0 }, Z8 = { key: 1 }, Q8 = { key
       });
     };
   }
-}, sP = /* @__PURE__ */ Zi(iP, [["__scopeId", "data-v-8880a628"]]);
+}, sP = /* @__PURE__ */ Zi(iP, [["__scopeId", "data-v-0859acd9"]]);
 /*! js-cookie v3.0.5 | MIT */
 function Ia(t) {
   for (var e = 1; e < arguments.length; e++) {
